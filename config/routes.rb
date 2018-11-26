@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :recipes
-  resources :chapters
+  resources :chapters do 
+    resources :recipes
+  end 
   root to: 'home#index'
 
   devise_scope :user do

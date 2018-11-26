@@ -1,0 +1,14 @@
+
+<%= form_for([@chapter, @recipe]) do |f| %>
+
+  <%= f.label :name, class: "label" %>
+  <%= f.text_field :name, class: "input" %>
+
+  <%= f.label :level, class: "label" %>
+  <%= f.text_field :level, class: "input" %>
+
+  <%= f.label :serves, class: "label" %>
+  <%= f.text_field :serve, class: "input" %>
+
+  <%= f.submit %>
+<% end %>
