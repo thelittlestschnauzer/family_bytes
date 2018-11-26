@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :chapters
   root to: 'home#index'
 
   devise_scope :user do
