@@ -13,12 +13,20 @@ class RecipesController < ApplicationController
   def create
     @chapter = Chapter.find(params[:chapter_id])
     @recipe = @chapter.recipes.build(recipe_params) 
+    if @recipe.save 
+      redirect_to :controller => 'recipes', :action => 'index'
+    else
+      render :new 
+    end 
+  end 
+
+  def show 
   end 
 
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :level, :serves, :chapter_id)
+    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :_destroy, recipe_details: [:instruction, :_destroy]])
   end 
 
 end
