@@ -3,3 +3,33 @@
   text-transform: uppercase;
 }
 
+.recipe-subtitle {
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.hero {
+  width: 100%;
+  position: relative;
+  height: 500px;
+}
+
+.show-image {
+  width: 50%;
+  height: 500px;
+  border: 1px solid #424244;
+}
+
+.ingredients-subtitle {
+  padding-top: 50px;
+  text-transform: uppercase;
+  color: #35342D;
+  margin-left: 20%;
+  font-weight: 500;
+}
+
+.ingredient-list {
+  margin-left: 20%;
+}

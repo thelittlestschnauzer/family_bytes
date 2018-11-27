@@ -20,7 +20,9 @@ class RecipesController < ApplicationController
     end 
   end 
 
-  def show 
+  def show
+    @chapter = Chapter.find(params[:chapter_id])
+    @recipe = @chapter.recipes.find(params[:chapter_id]) 
   end 
 
   private 
