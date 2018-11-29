@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   
   resources :chapters, only: [:show] do 
-    resources :recipes, only: [:show, :index] 
+    resources :recipes, only: [:new, :show, :index] 
   end
   
   resources :recipes, only: [:index, :show, :new, :create, :edit, :update]

@@ -8,6 +8,16 @@ class RecipesController < ApplicationController
     end 
   end 
 
+  def new 
+    @recipe = Recipe.new(chapter_id: params[:chapter_id])
+  end 
+
+  def create 
+    @recipe = Recipe.new(recipe_params)
+    @recipe.save 
+    redirect_to recipe_path(@recipe)
+  end 
+
   def show 
     @recipe = Recipe.find(params[:id])
   end 
