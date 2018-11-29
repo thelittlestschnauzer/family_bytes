@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :chapters do 
-    resources :recipes
-  end 
+  get 'chapters/:id/recipes', to: 'chapters#recipes_index'
+  get 'chapters/:id/recipes/:recipe_id', to: 'chapters#recipe'
+
+  resources :chapters, only: [:show, :index] do 
+    resources :recipes, only: [:show, :new, :edit] 
+  end
+  
+  resources :recipes, only: [:index, :create, :edit, :update]
+
   root to: 'home#index'
 
   devise_scope :user do

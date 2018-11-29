@@ -1,9 +1,17 @@
 class ChaptersController < ApplicationController
   
-  def show 
+  def recipes_index 
     @chapter = Chapter.find(params[:id])
+    @recipes = @chapter.recipes
+    render template: 'recipes/index'
   end 
 
+  def recipe 
+    @chapter = Chapter.find(params[:id])
+
+    @recipe = Recipe.find(params[:recipe_id])
+    render template: 'recipes/show'
+  end 
 
   private 
 

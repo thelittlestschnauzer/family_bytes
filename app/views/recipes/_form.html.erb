@@ -1,9 +1,10 @@
 
-<%= form_for([@chapter, @recipe]) do |f| %>
+<%= form_for(@recipe) do |f| %>
+  
+    <%= chapter_id_field(@recipe) %>
   <br>
-  <%= f.label :chapter, class: "label" %>
-  <%= f.collection_select :chapter_id, Chapter.all, :id, :title, include_blank: true %><br/>
-  <br>
+  <%= f.hidden_field :chapter_id %>
+  
   <%= f.label :name, class: "label" %>
   <%= f.text_field :name, class: "input" %>
 
@@ -15,19 +16,7 @@
 
   <%= f.label :serve, class: "label" %>
   <%= f.text_field :serve, class: "input" %><br/>
-  
-    <h3 class="subtitle">Ingredients:</h3>
-      <div id="ingredients">
-        <%= f.fields_for :ingredients do |ingredient| %>
-          <%= ingredient.label :quantity_and_name, class: "label" %>
-          <%= ingredient.text_field :name, class: "input" %>
-
-          <%= ingredient.fields_for :recipe_details do |rd| %>
-            <%= rd.label :instructions, class: "label" %>
-            <%= rd.text_field :instruction, class: "input" %>
-            <% end %>
-        <% end %>
-      </div>
+        
       <br>
   <%= f.submit %>
 <% end %>

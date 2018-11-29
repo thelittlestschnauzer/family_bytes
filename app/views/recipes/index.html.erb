@@ -1,18 +1,18 @@
 <section class="section">
   <div class="container">
 
-      <h3 class="title dinner-title">Dinner</h3>
+      <h3 class="title dinner-title"></h3>
 
         <div class="row columns">
           <div class="column is-one-third">
-            <% @chapter.recipes.each do |recipe| %>
+            <% @recipes.each do |recipe| %>
               <div class="card large">
                 <div class="card-image">
                 <%= image_tag recipe.image %>
                 </div>
                 <div class="card-content">
                   <div class="media-content">
-                    <p class="title is-4 no-padding"><%= link_to recipe.name, chapter_recipe_path(@chapter, :chapter_id) %></p>
+                    <p class="title is-4 no-padding"><%= recipe.name %></p>
                     <p class="subtitle is-6"><%= recipe.level %></p>
                 </div>
               </div>
