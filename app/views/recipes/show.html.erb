@@ -1,5 +1,6 @@
 <section class="section">
   <div class="container">
+    <h2 class="title dinner-title"><%= link_to @recipe.chapter.title, chapter_path(@recipe.chapter) if @recipe.chapter %></h2>
     <h3 class="title recipe-title"><%= @recipe.name %></h3>
       <p class="subtitle recipe-subtitle">Level: <%= @recipe.level %> | Serves: <%= @recipe.serve %></p>
   </div>
@@ -20,5 +21,6 @@
         </ul>
         <% end %>
       </div>
+      <p class="title dinner-title"><%= link_to "Edit Recipe", edit_chapter_recipe_path(@recipe.chapter) %></p>
   </div>
 </section>

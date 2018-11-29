@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   
   resources :chapters, only: [:show] do 
-    resources :recipes, only: [:new, :show, :index] 
+    resources :recipes, only: [:new, :show, :index, :edit] 
   end
   
-  resources :recipes, only: [:index, :show, :new, :create, :edit, :update]
+  resources :recipes, only: [:index, :show, :new, :create, :update]
 
   root to: 'home#index'
 
