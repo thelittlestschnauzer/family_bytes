@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'chapters/:id/recipes', to: 'chapters#recipes_index'
-  get 'chapters/:id/recipes/:recipe_id', to: 'chapters#recipe'
-
-  resources :chapters, only: [:show, :index] do 
-    resources :recipes, only: [:show, :new, :edit] 
+  
+  resources :chapters, only: [:show] do 
+    resources :recipes, only: [:show, :index] 
   end
   
-  resources :recipes, only: [:index, :create, :edit, :update]
+  resources :recipes, only: [:index, :show, :new, :create, :edit, :update]
 
   root to: 'home#index'
 

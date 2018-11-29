@@ -1,6 +1,5 @@
 <section class="section">
   <div class="container">
-
       <h3 class="title dinner-title"></h3>
 
         <div class="row columns">
@@ -12,6 +11,7 @@
                 </div>
                 <div class="card-content">
                   <div class="media-content">
+                  <h3 class="title dinner-title"><%= link_to recipe.chapter.title, chapter_recipes_path(recipe.chapter) %></h3>
                     <p class="title is-4 no-padding"><%= recipe.name %></p>
                     <p class="subtitle is-6"><%= recipe.level %></p>
                 </div>
