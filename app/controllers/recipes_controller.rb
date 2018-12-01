@@ -9,7 +9,11 @@ class RecipesController < ApplicationController
   end 
 
   def new 
-    @recipe = Recipe.new(chapter_id: params[:chapter_id])
+    if params[:chapter_id] && !Chapter.exists?(params[:chapter_id])
+      redirect_to chapters_path, alert: "Chapter is not available"
+    else 
+      @recipe = Recipe.new(chapter_id: params[:chapter_id])
+    end 
   end 
 
   def create 
@@ -19,7 +23,7 @@ class RecipesController < ApplicationController
   end 
 
   def show 
-    @recipe = Recipe.find(params[:id])
+    @recipe = Chapter.find(params[:chapter_id]).recipe
   end 
 
   def edit 

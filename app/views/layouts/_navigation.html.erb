@@ -14,12 +14,24 @@
     <div class="navbar-end">
       <div class="navbar-item">
       <div class="navbar-item has-dropdown is-hoverable">
-        <%= link_to "Recipes",  root_path, class: "navbar-link" %> 
+        <a class="navbar-item">Recipes</a>
         <div class="navbar-dropdown">
           <a class="navbar-item">
+            Breakfast
+          </a>
+          <a class="navbar-item">
+            Lunch
+          </a>
+          <a class="navbar-item">
+            Dinner
+          </a>
+          <a class="navbar-item">
+            Appetizers
+          </a>
+          <a class="navbar-item">
+            Desserts
           </a>
           <hr class="navbar-divider">
-          <%= link_to "New Recipe", new_recipe_path, class: "navbar-link" %>
           <a class="navbar-item"><%= current_user.name %>
           </a>
         </div>

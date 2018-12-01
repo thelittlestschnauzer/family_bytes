@@ -1,7 +1,7 @@
 <section class="section">
   <div class="container">
-      <h2 class="title dinner-title"><%= @chapter.title %></h2>
-        <%= link_to "New Recipe", new_chapter_recipe_path(@chapter) %>
+      <h2 class="title dinner-title"><%= @chapter.title %> | <%= link_to "Add New Recipe", new_chapter_recipe_path(@chapter) %></h2><br/>
+        
   </div>
   <div class="container">
   <% @chapter.recipes.each do |recipe| %>
