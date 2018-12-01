@@ -40,8 +40,14 @@
 
 .recipe-index {
   text-transform: uppercase;
+  font-weight: 200;
 }
 
-.column {
-  background-color: #;
+.notification {
+  background-color: #fff;
+  border: 1px solid #373737;
+  &:hover {
+    background-color: #a20c0b;
+    color: #fff;
+  }
 }

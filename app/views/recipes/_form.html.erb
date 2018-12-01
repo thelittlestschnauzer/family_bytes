@@ -3,20 +3,48 @@
 
     <%= chapter_id_field(@recipe) %>
   <br>
-  <%= f.hidden_field :chapter_id %>
-  
-  <%= f.label :name, class: "label" %>
-  <%= f.text_field :name, class: "input" %>
+  <%= f.hidden_field :chapter_id %><br/>
 
-  <%= f.label :image, class: 'label' %>
-  <%= f.file_field :image %>
+  <div class="field">
+    <%= f.label :name_of_your_recipe, class: "subtitle" %>
+    <%= f.text_field :name, class: "input" %>
+  </div><br/>
 
-  <%= f.label :level, class: "label" %>
-  <%= f.text_field :level, class: "input" %>
+  <div class="field">
+    <%= f.label :image, class: 'subtitle' %>
+    <%= f.file_field :image %>
+  </div><br/>
 
-  <%= f.label :serve, class: "label" %>
-  <%= f.text_field :serve, class: "input" %><br/>
-        
+  <div class="field">
+    <%= f.label :level, class: "subtitle" %>
+    <%= f.text_field :level, class: "input" %><br/>
+  </div>
+
+  <div class="field">
+    <%= f.label :serves, class: "subtitle" %>
+    <%= f.text_field :serve, class: "input" %><br/>
+  </div>
+
+  <h3 class="subtitle">Ingredients: </h3>
+    <%= f.fields_for :ingredients do |i| %>
+    <div class="field">
+      <%= i.label :quantity %>
+      <%= i.text_field :quantity %>
+      <%= i.label :name_of_ingredient %>
+      <%= i.text_field :name %>
+    </div><br/>
+  <h3 class="subtitle">Directions: </h3>
+    <%= i.fields_for :recipe_details do |rd| %>
+    <div class="field">
+      <%= rd.label :instructions %>
+      <%= rd.text_field :instruction %>
+    </div>
+    <% end %>
+  <% end %>
+    
+    
       <br>
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit class: "button" %>
+  </div>
 <% end %>
