@@ -15,6 +15,8 @@ class ChaptersController < ApplicationController
 
     def show 
       @chapter = Chapter.find(params[:id])
+      @recipe = Recipe.find(params[:id])
+
     end 
 
   private 

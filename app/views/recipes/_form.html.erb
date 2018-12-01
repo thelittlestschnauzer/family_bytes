@@ -1,9 +1,11 @@
 
 <%= form_for(@recipe) do |f| %>
 
-    <%= chapter_id_field(@recipe) %>
+    
   <br>
-  <%= f.hidden_field :chapter_id %><br/>
+  Select a chapter:
+
+    <%= f.collection_select :chapter_id, Chapter.all, :id, :title %>
 
   <div class="field">
     <%= f.label :name_of_your_recipe, class: "subtitle" %>
