@@ -1,52 +1,46 @@
 
-<%= form_for(@recipe) do |f| %>
+<%= form_for @recipe do |f| %>
+  <%= render 'shared/errors', object: @recipe %>
+  <div>
 
-    
-  <br>
-  Select a chapter:
-
-    <%= f.collection_select :chapter_id, Chapter.all, :id, :title %>
-
-  <div class="field">
-    <%= f.label :name_of_your_recipe, class: "subtitle" %>
-    <%= f.text_field :name, class: "input" %>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :image, class: 'subtitle' %>
-    <%= f.file_field :image %>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :level, class: "subtitle" %>
-    <%= f.text_field :level, class: "input" %><br/>
-  </div>
-
-  <div class="field">
-    <%= f.label :serves, class: "subtitle" %>
-    <%= f.text_field :serve, class: "input" %><br/>
-  </div>
-
-  <h3 class="subtitle">Ingredients: </h3>
-    <%= f.fields_for :ingredients do |i| %>
+    Select a chapter:
+      <%= f.collection_select :chapter_id, Chapter.all, :id, :title %><br />
+    <br>
     <div class="field">
-      <%= i.label :quantity %>
-      <%= i.text_field :quantity %>
-      <%= i.label :name_of_ingredient %>
-      <%= i.text_field :name %>
+      <%= f.label :name_of_your_recipe, class: "subtitle" %>
+      <%= f.text_field :name, class: "input" %>
     </div><br/>
-  <h3 class="subtitle">Directions: </h3>
-    <%= i.fields_for :recipe_details do |rd| %>
+
     <div class="field">
-      <%= rd.label :instructions %>
-      <%= rd.text_field :instruction %>
+      <%= f.label :image, class: 'subtitle' %>
+      <%= f.file_field :image %>
+    </div><br/>
+
+    <div class="field">
+      <%= f.label :level, class: "subtitle" %>
+      <%= f.text_field :level, class: "input" %><br/>
     </div>
-    <% end %>
-  <% end %>
-    
-    
-      <br>
+
+    <div class="field">
+      <%= f.label :serves, class: "subtitle" %>
+      <%= f.text_field :serve, class: "input" %><br/>
+    </div>
+
+    <div id="ingredients">
+      <%= f.fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredient_fields', f: ingredient %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add ingredient', f, :ingredients %>
+      </div>
+    </div>
+  </div>
+
+  
+      <br>  
   <div class="actions">
     <%= f.submit class: "button" %>
   </div>
 <% end %>
+</div>

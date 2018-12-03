@@ -13,17 +13,28 @@
       <%= image_tag recipe.image, class: "show-image" %>
     </div>
   </div>
+  <% end %>
   <div class="not-hero flex-center bg-info">
     <div class="not-hero-message">
       
     </div>
       <div class="container">
+
         <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>
-        
+            
         <ul>
-          <li class="ingredient-list">Ingredient Name </li>
+        <% @recipe.recipe_details.each do |recipe_detail| %>
+          <li class="ingredient-list"><%= recipe_detail.ingredient.quantity %> - <%= recipe_detail.ingredient.name %></li>
         </ul>
-        <% end %>
+          <h3 class="subtitle">Directions: </h3>
+          <p class="subtitle">
+            <%= recipe_detail.instruction %>
+          </p>
+          <% end %>
+      </div>
+
+      <div class="level">
+        <%= link_to 'Edit', edit_recipe_path(@recipe) %> 
       </div>
     </div>
 </section>

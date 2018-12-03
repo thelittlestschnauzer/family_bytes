@@ -23,6 +23,7 @@ gem 'devise'
 gem 'bulma'
 gem 'jquery-rails'
 gem 'cocoon'
+
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

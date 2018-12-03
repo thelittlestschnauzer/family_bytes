@@ -9,13 +9,9 @@ class RecipesController < ApplicationController
   end 
 
   def new 
-    @recipe = Recipe.new(chapter_id: params[:chapter_id])
-    @recipe.build_chapter
-    # if params[:chapter_id] && !Chapter.exists?(params[:chapter_id])
-    #   redirect_to chapters_path, alert: "Chapter is not available"
-    # else 
-    #   @recipe = Recipe.new(chapter_id: params[:chapter_id])
-    # end 
+    @recipe = Recipe.new
+    #@recipe = Recipe.new(chapter_id: params[:chapter_id])
+    @recipe.ingredients.build 
   end 
 
   def create 
@@ -40,7 +36,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :quantity, recipe_details: [:instruction]])
+    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :quantity, :_destroy, recipe_details: [:instruction]])
   end 
 
   def get_chapter

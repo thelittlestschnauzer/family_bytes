@@ -15,11 +15,14 @@
     </div>
       <div class="container">
         <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>
-        <% @recipe.ingredients.name do |ingredient| %>
+        <% @recipe.recipe_details.each do |recipe_detail| %>
         <ul>
-          <li class="ingredient-list"><%= ingredient.name %></li>
+          <li class="ingredient-list"><%= recipe_detail.ingredient.quantity %> - <%= recipe_detail.ingredient.name %></li>
         </ul>
-        <% end %>
+
+        <p class="subtitle ingredients-subtitle"><strong>Directions: </strong></p>
+          <p class="subtitle"><%= recipe_detail.instruction %></p>
       </div>
+        <% end %>
   </div>
 </section>
