@@ -1,12 +1,12 @@
 <section class="section">
   <div class="container">
-    <h2 class="title dinner-title"><%= link_to @recipe.chapter.title, chapter_path(@recipe.chapter) if @recipe.chapter %></h2>
+    <h2 class="title dinner-title"><%=link_to @recipe.chapter.title, chapter_recipes_path(@recipe.chapter_id, @chapter) %></h2>
     <h3 class="title recipe-title"><%= @recipe.name %></h3>
       <p class="subtitle recipe-subtitle">Level: <%= @recipe.level %> | Serves: <%= @recipe.serve %></p>
   </div>
   <div class="hero flex-center">  
     <div class="hero-message">
-      <%= image_tag @recipe.image, class: "show-image" %>
+      <%= image_tag @recipe.thumbnail, class: "show-image" %>
     </div>
   </div>
   <div class="not-hero flex-center bg-info">
@@ -17,7 +17,7 @@
         <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>
         <% @recipe.recipe_details.each do |recipe_detail| %>
         <ul>
-          <li class="ingredient-list"><%= recipe_detail.ingredient.quantity %> - <%= recipe_detail.ingredient.name %></li>
+          <li class="ingredient-list"><%= recipe_detail.ingredient.name %></li>
         </ul>
 
         <p class="subtitle ingredients-subtitle"><strong>Directions: </strong></p>

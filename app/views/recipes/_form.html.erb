@@ -1,7 +1,6 @@
 
 <%= form_for @recipe do |f| %>
   <%= render 'shared/errors', object: @recipe %>
-  <div>
 
     Select a chapter:
       <%= f.collection_select :chapter_id, Chapter.all, :id, :title %><br />
@@ -35,12 +34,10 @@
         <%= link_to_add_association 'add ingredient', f, :ingredients %>
       </div>
     </div>
-  </div>
 
-  
+    
       <br>  
   <div class="actions">
     <%= f.submit class: "button" %>
   </div>
 <% end %>
-</div>

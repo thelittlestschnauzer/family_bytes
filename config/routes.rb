@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
 
-  root to: "recipes#index"
-  resources :recipes, :ingredients
+  root to: "home#landing"
+
+  resources :recipes, only: [:new, :show, :create, :edit, :update]
 
   resources :chapters, only: [:show] do 
-    resources :recipes, only: [:show]
+    resources :recipes, only: [:show, :index]
   end  
 
-  resources :recipes, only: [:show] do 
-    resources :ingredients, only: [:new, :index, :create] 
-  end
-
+  
   get '/dinners', to: 'recipes#dinner'
+  get 'breakfast', to: 'recipes#breakfast'
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'

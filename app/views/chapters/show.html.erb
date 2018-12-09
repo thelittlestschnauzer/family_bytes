@@ -1,10 +1,10 @@
 <section class="section">
   <div class="container">
-      <h2 class="title dinner-title"><%= @chapter.title %></h2><br/>
+      <h2 class="title dinner-title"><%= @recipes.chapter.title %></h2><br/>
         
   </div>
   <div class="container">
-  <% @chapter.recipes.each do |recipe| %>
+  <% recipes.each do |recipe| %>
     <h3 class="title recipe-title"><%= recipe.name %></h3>
       <p class="subtitle recipe-subtitle">Level: <%= recipe.level %> | Serves: <%= recipe.serve %></p>
   </div>
@@ -20,11 +20,10 @@
     </div>
       <div class="container">
 
-        <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>
-            
+        <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>  
         <ul>
-        <% @recipe.recipe_details.each do |recipe_detail| %>
-          <li class="ingredient-list"><%= recipe_detail.ingredient.quantity %> - <%= recipe_detail.ingredient.name %></li>
+          <% @recipe.recipe_details.each do |recipe_detail| %>
+            <li class="ingredient-list"><%= recipe_detail.ingredient.name %></li>
         </ul>
           <h3 class="subtitle">Directions: </h3>
           <p class="subtitle">

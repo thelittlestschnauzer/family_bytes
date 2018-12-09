@@ -51,3 +51,42 @@
     color: #fff;
   }
 }
+
+.image {
+  width: 100%;
+  display: block;
+  border: 0;
+  height: auto;
+}
+
+.card {
+  background: white;
+  margin-bottom: 2em;
+}
+
+.card-content {
+  padding: 1.4em;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: 5em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.card-content p {
+  font-size: 80%;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 0 1 33%;
+}
+
+

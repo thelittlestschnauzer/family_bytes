@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
-  def index 
+  def index
+     @recipes = Recipe.all 
     if params[:chapter_id]
       @recipes = Chapter.find(params[:chapter_id]).recipes 
     else
@@ -14,8 +15,9 @@ class RecipesController < ApplicationController
     @recipe.ingredients.build 
   end 
 
-  def create 
+  def create
     @recipe = Recipe.create(recipe_params)
+    @recipe.image.attach(params[:recipe][:image])
     redirect_to chapter_recipe_path(@recipe.chapter_id, @recipe)
   end 
 
@@ -24,7 +26,7 @@ class RecipesController < ApplicationController
   end 
 
   def edit 
-    @recipe = Recipe.find(params[:id]) 
+    @recipe = Recipe.find(params[:id])
   end 
 
   def update
@@ -36,7 +38,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :quantity, :_destroy, recipe_details: [:instruction]])
+    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :_destroy, recipe_details: [:instruction]])
   end 
 
   def get_chapter

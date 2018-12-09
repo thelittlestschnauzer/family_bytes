@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_paramters, if: :devise_controller?
+  before_action :authenticate_user!
+
 
   
 
   protected 
+
+  def after_sign_out_path_for(resource_or_scope)
+    landing_path
+  end 
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:signup)

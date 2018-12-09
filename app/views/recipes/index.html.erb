@@ -1,78 +1,18 @@
+<main class="main-area">
+  <div class="centered">
+    <section class="cards">
+    <% @recipes.each do |recipe| %>
+      <article class="card">
+        <picture class="thumbnail">
+          <%= image_tag recipe.thumbnail, class: "image" %>
+        </picture>
+        <div class="card-content">
+          <h2><%= recipe.name %></h2>
+          <p><%= recipe.level %> | <%= recipe.serve %></p>
+        </div><!-- card-content -->
+      </article><!-- card -->
+      <% end %>
+    </section><!-- cards -->
+  </div><!-- centered -->
+</main>
 
-
-<section class="section">
-  <div class="container">
-    <div class="columns">
-
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Cocktails
-          </p>
-        </div>
-      </div><!-- column -->
-
-      <div class="column is-4">
-        <div class="notification box">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Appetizers
-          </p>
-        </div>
-      </div><!-- column -->
-
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            <%= link_to 'Dinner', dinners_path %>
-          </p>
-        </div>
-      </div><!-- column -->
-    </div><!-- columns -->
-
-    <div class="columns">
-
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Sides
-          </p>
-        </div>
-      </div><!-- column -->
-
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Dessert
-          </p>
-        </div>
-      </div><!-- column -->
-
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Breakfast
-          </p>
-        </div>
-      </div><!-- column -->
-    </div><!-- columns -->
-
-    <div class="columns">
-      <div class="column is-4">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered recipe-index">
-            Lunch
-          </p>
-        </div>
-      </div><!-- column -->
-
-      <div class="column is-4 has-text-centered">
-        <div class="notification">
-          <p class="is-size-3 has-text-centered">
-            <%= link_to 'Add A Recipe', new_recipe_path, class: "is-size-3 recipe-index" %>
-          </p>
-        </div>
-      </div><!-- column -->
-
-    </div><!-- columns -->
-  </div><!-- container -->
-<section>

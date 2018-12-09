@@ -1,9 +1,9 @@
 class ChaptersController < ApplicationController
   
   
-    def show 
-      
-      @recipe = Recipe.find(params[:id])
+    def show
+      @chapter = Chapter.find(params[:id])
+      @recipes = @chapter.recipes        
     end 
 
   private 
