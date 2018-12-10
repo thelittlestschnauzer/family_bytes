@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+<section class="section">
+<h1 class="title chapters-title">Chapters in your Cookbook</h1>
+    <div class="cards">
+      <%# <div class="column is-4 chapters"> %>
+        <% @chapters.each do |chapter| %>
+        <div class="card">
+          <div class="notification">
+            <p class="is-size-3 has-text-centered recipe-index">
+              <%= link_to chapter.title, chapter_recipes_path(chapter) %>
+            </p>
+          </div>
+          </div>
+        <% end %>
+      <%# </div><!-- column --> %>
+  </div><!-- container -->
+<section>
+<% else %>
+  <%= render 'home/welcome' %>
+<% end %>

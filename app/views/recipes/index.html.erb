@@ -1,13 +1,20 @@
 <main class="main-area">
+  <div class="container">
+    <h1 class="title chapters-title"><%= @chapter.title %></h1>
+    <div class="button add-recipe"><%= link_to "New Recipe", new_recipe_path %></div>
+    <div class="button back"><%= link_to "Back", chapters_path %>
+  </div>
   <div class="centered">
     <section class="cards">
     <% @recipes.each do |recipe| %>
       <article class="card">
         <picture class="thumbnail">
-          <%= image_tag recipe.thumbnail, class: "image" %>
+          <% if recipe.image.attached? %>
+            <%= image_tag recipe.thumbnail, class: "image" %>
+          <% end %>
         </picture>
         <div class="card-content">
-          <h2><%= recipe.name %></h2>
+          <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
           <p><%= recipe.level %> | <%= recipe.serve %></p>
         </div><!-- card-content -->
       </article><!-- card -->
@@ -15,4 +22,3 @@
     </section><!-- cards -->
   </div><!-- centered -->
 </main>
-

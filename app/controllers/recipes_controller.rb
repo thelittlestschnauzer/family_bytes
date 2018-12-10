@@ -1,9 +1,13 @@
 class RecipesController < ApplicationController
 
   def index
-     @recipes = Recipe.all 
     if params[:chapter_id]
-      @recipes = Chapter.find(params[:chapter_id]).recipes 
+      @chapter = Chapter.find_by(id: params[:chapter_id])
+      if @chapter.nil?
+        redirect_to chapters_path, "Chapter not found"
+      else 
+        @recipes = @chapter.recipes 
+      end 
     else
       @recipes = Recipe.all 
     end 
@@ -33,6 +37,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     redirect_to recipe_path(@recipe) 
+  end 
+
+  def destroy 
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy 
+    redirect_to chapter_recipes_path(@recipe.chapter_id, @recipe)
   end 
 
   private 

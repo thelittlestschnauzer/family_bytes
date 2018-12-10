@@ -89,4 +89,17 @@
   flex: 0 1 33%;
 }
 
+.chapters-title {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 50px;
+}
 
+.add-recipe {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  &:hover {
+    background-color: #a20c0b;
+    color: #fff;
+  }
+}

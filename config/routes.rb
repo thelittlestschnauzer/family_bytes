@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  root to: "home#landing"
+  root to: "chapters#index"
 
-  resources :recipes, only: [:new, :show, :create, :edit, :update]
 
-  resources :chapters, only: [:show] do 
+  resources :chapters do 
     resources :recipes, only: [:show, :index]
   end  
 
+  resources :recipes
   
   get '/dinners', to: 'recipes#dinner'
   get 'breakfast', to: 'recipes#breakfast'

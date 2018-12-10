@@ -4,7 +4,7 @@
         
   </div>
   <div class="container">
-  <% recipes.each do |recipe| %>
+  <% @chapter.recipes.each do |recipe| %>
     <h3 class="title recipe-title"><%= recipe.name %></h3>
       <p class="subtitle recipe-subtitle">Level: <%= recipe.level %> | Serves: <%= recipe.serve %></p>
   </div>

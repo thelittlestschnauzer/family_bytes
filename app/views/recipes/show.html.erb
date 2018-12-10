@@ -11,7 +11,7 @@
   </div>
   <div class="not-hero flex-center bg-info">
     <div class="not-hero-message">
-      
+      <div class="edit-recipe"><%= link_to "Edit Recipe", edit_recipe_path %> | <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %></div>
     </div>
       <div class="container">
         <p class="subtitle ingredients-subtitle"><strong>Ingredients:</strong></p>
