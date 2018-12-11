@@ -23,7 +23,7 @@ gem 'devise'
 gem 'bulma'
 gem 'jquery-rails'
 gem 'cocoon'
-
+gem 'omniauth-facebook'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
