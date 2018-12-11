@@ -1,0 +1,13 @@
+<%= form_for @chapter do |f| %>
+  <%= render 'shared/errors', object: @chapter %>
+
+    <div class="field">
+      <%= f.label :title_of_your_chapter, class: "subtitle" %>
+      <%= f.text_field :title, class: "input" %>
+    </div><br/>
+
+    <div class="actions">
+      <%= f.submit class: "button" %>
+    </div>
+    
+<% end %>

@@ -1,5 +1,18 @@
 class ChaptersController < ApplicationController
 
+  def new 
+    @chapter = Chapter.new 
+  end 
+
+  def create 
+    @chapter = Chapter.create(chapter_params)
+    if @chapter.save 
+      redirect_to chapters_path
+    else
+      render :new 
+    end 
+  end 
+
   def index 
     @chapters = Chapter.all 
   end 
