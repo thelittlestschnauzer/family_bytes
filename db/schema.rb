@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_12_12_011027) do
+=======
+ActiveRecord::Schema.define(version: 2018_12_04_165015) do
+>>>>>>> parent of 59ac5c2... added omniauth-facebook gem and generated migration to add provider and uid to users table
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,10 +75,13 @@ ActiveRecord::Schema.define(version: 2018_12_12_011027) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "provider"
     t.string "uid"
     t.text "image"
     t.string "token"
+=======
+>>>>>>> parent of 59ac5c2... added omniauth-facebook gem and generated migration to add provider and uid to users table
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

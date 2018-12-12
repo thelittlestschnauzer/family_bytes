@@ -23,8 +23,7 @@ gem 'devise'
 gem 'bulma'
 gem 'jquery-rails'
 gem 'cocoon'
-gem 'koala'
-gem 'omniauth-facebook', '= 4.0.0'
+
 
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -54,7 +53,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'dotenv-rails', :groups => [:development, :test]
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

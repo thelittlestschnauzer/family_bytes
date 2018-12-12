@@ -6,14 +6,6 @@
         <p class="subtitle">Welcome to Family Bytes!</p>
         <p class="subtitle">Gather all your family fav's, no more searching all over for the recipe card or book</p>
         <p class="subtitle">Sign in or Create a new account</p>
-        <% if session[:user_id] %>
-          <h1><%= @user.name %></h1>
-          <h2>Email: <%= @user.email %></h2>
-          <h2>Facebook UID: <%= @user.uid %></h2>
-          <img src="<%= @user.image %>">
-        <% else %>
-          <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-        <% end %>
       </div>
     </div>
   </section>
