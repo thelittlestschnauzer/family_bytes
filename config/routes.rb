@@ -6,13 +6,8 @@ Rails.application.routes.draw do
   resources :chapters do 
     resources :recipes, only: [:show, :index]
   end  
-  
-  resources :chapters do 
-    collection do    
-      match 'search' => 'people#search', via: [:get, :post], as: :search
-    end     
-  end 
 
+  resources :searches 
   resources :recipes
   
   
