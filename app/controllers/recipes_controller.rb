@@ -5,12 +5,12 @@ class RecipesController < ApplicationController
       @chapter = Chapter.find_by(id: params[:chapter_id])
       if @chapter.nil?
         redirect_to chapters_path, "Chapter not found"
-      else 
-        @recipes = @chapter.recipes 
+      else
+       @recipes = @chapter.recipes 
       end 
-    else
-      @recipes = Recipe.all 
-    end 
+    else 
+      @recipes = Recipe.all     
+    end
   end 
 
   def new 
@@ -44,6 +44,7 @@ class RecipesController < ApplicationController
     @recipe.destroy 
     redirect_to chapter_recipes_path(@recipe.chapter_id, @recipe)
   end 
+
 
   private 
 

@@ -23,6 +23,7 @@ gem 'devise'
 gem 'bulma'
 gem 'jquery-rails'
 gem 'cocoon'
+gem 'omniauth-google-oauth2'
 
 
 # gem 'redis', '~> 4.0'
