@@ -1,15 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Family Bytes 
 
-Things you may want to cover:
+My family's Online Cookbook 
 
-* Ruby version
+Purpose:
+  A way to save and organize family favorite recipes to be passed on from generation to generation 
 
-* System dependencies
+Usage: 
+  Clone the repo, run bundle to install dependencies. To migrate your database, run rails db:migrate. To start the application, in terminal run 'rails s' from the application root. In your browser go to localhost:3000 or whichever port is noted by your rails server.
 
-* Configuration
+Contributing 
+
+Bug Reports and pull requests are welcome on Github at https://github.com/thelittlestschnauzer/family_bytes. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct. 
+
+Things to do in the Future:
+
+  Style the pages as Recipe Card 
+  Add ability to search by ingredient name 
+  Edit profile information 
+
+
 
 * Database creation
 
