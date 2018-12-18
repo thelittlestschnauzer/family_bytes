@@ -1,0 +1,16 @@
+<h1>Search Recipes:</h1><br/>
+
+<%= form_for @search do |s| %>
+
+  <div class="field">
+    
+    <%= s.text_field :keyword, placeholder: "type keyword" %>
+  </div>
+
+  <div class="actions">
+    <%= s.submit "Search" %>
+  </div>
+<% end %>
+<%= link_to "Home", chapters_path %>
+
+  
