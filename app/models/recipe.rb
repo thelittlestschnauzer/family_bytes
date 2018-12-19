@@ -7,6 +7,16 @@ class Recipe < ApplicationRecord
 
   has_one_attached :image
 
+  # scope :search, -> { where('name LIKE ?', "%#{keyword}%") }
+
+  def self.search(keyword)
+    if keyword
+      where('name LIKE ?', "%#{keyword}%").order('id DESC')
+    else
+      all
+    end
+  end
+
   def thumbnail
     return self.image.variant(resize: '250x250')
   end
@@ -14,7 +24,8 @@ class Recipe < ApplicationRecord
   def large
     return self.image.variant(resize: '500x400')
   end 
-  
+
+
   def ingredients_attributes=(ingredients_attributes)
     ingredients_attributes.values.each do |ingredients_attribute|
        if !ingredients_attribute["name"].empty?

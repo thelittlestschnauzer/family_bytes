@@ -22,20 +22,18 @@
           <a class="navbar-item">
             <%= link_to "New Recipe", new_recipe_path, class: "navbar-item" %>
           </a>
-          <a class="navbar-item">
-            Search
-          </a>
-          <a class="navbar-item">
-            Appetizers
-          </a>
-          <a class="navbar-item">
-            Desserts
-          </a>
           <hr class="navbar-divider">
-          <a class="navbar-item"><%= current_user[:name] %>
+          <a class="navbar-item"><%= current_user.email %>
           </a>
         </div>
       </div>
+    </div>
+    <div class="navbar-item">
+    <h3>Search Recipes:</h3>
+      <%= form_tag(recipes_search_path, method: :get) do %>
+        <%= text_field_tag :keyword, params[:keyword] %>
+        <%= submit_tag 'Search', name: nil %>
+      <% end %>
     </div>
     <div class="navbar-item">
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "navbar-item" %>

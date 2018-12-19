@@ -2,7 +2,13 @@
 <section class="section">
 <h1 class="title chapters-title">Chapters in your Cookbook</h1>
 <div class="container">
-  <%= link_to "Search Recipes", new_search_path %>
+  <div class="container">
+  <h3>Search Recipes:</h3>
+    <%= form_tag(recipes_search_path, method: :get) do %>
+      <%= text_field_tag :keyword, params[:keyword] %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+  </div><br/>
 </div>
     <div class="cards">
       <%# <div class="column is-4 chapters"> %>

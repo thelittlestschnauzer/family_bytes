@@ -45,11 +45,15 @@ class RecipesController < ApplicationController
     redirect_to chapter_recipes_path(@recipe.chapter_id, @recipe)
   end 
 
+  def search 
+    @recipes = Recipe.search(params[:keyword])
+  end 
+
 
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, ingredients_attributes: [:name, :_destroy, recipe_details: [:instruction]])
+    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, :keyword, ingredients_attributes: [:name, :_destroy, recipe_details: [:instruction]])
   end 
 
   def get_chapter

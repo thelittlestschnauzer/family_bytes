@@ -1,0 +1,17 @@
+<div class="centered">
+  <section class="cards">
+    <% @recipes.each do |recipe| %>
+      <article class="card">
+        <picture class="thumbnail">
+          <% if recipe.image.attached? %>
+            <%= image_tag recipe.thumbnail, class: "image" %>
+          <% end %>
+        </picture>
+        <div class="card-content">
+          <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
+          <p><%= recipe.level %> | <%= recipe.serve %></p>
+        </div><!-- card-content -->
+      </article><!-- card -->
+      <% end %>
+    </section><!-- cards -->
+  </div><!-- centered -->
