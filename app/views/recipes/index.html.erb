@@ -1,12 +1,5 @@
 <main class="main-area">
-  <div class="container">
-  <h3>Search Recipes:</h3>
-    <%= form_tag(recipes_search_path, method: :get) do %>
-      <%= text_field_tag :keyword, params[:keyword] %>
-      <%= submit_tag 'Search', name: nil %>
-    <% end %>
-
-  </div><br/>
+<%= link_to 'New Recipe', new_chapter_recipe_path %>
   <div class="container">
     <h1 class="title chapters-title"><%= @chapter.title %></h1>
     <div class="button add-recipe"><%= link_to "New Recipe", new_recipe_path %></div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   
   resources :chapters do 
-    resources :recipes, only: [:show, :index]
+    resources :recipes, only: [:new, :show, :index]
   end  
   get 'recipes/search', to: 'recipes#search'
   resources :searches 
