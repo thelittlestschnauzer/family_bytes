@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   
   validates :email, presence: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
+  validates :email, uniqueness: true 
   validates :password, presence: true 
-
   
   def self.from_omniauth(access_token)
     data = access_token.info  
