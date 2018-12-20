@@ -108,3 +108,21 @@
   color: #a20c0b;
   text-transform: uppercase;
 }
+
+.text-field {
+  margin-top: 20px;
+  width: 70%;
+  height: 200px;
+  border: 1px solid #aaaca9;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+a.add_fields {
+  text-transform: uppercase;
+  color: #d24240;
+}

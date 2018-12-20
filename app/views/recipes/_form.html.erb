@@ -19,23 +19,23 @@
       <%= f.label :level, class: "subtitle" %>
       <%= f.text_field :level, class: "input" %><br/>
     </div>
+    
 
     <div class="field">
       <%= f.label :serves, class: "subtitle" %>
       <%= f.text_field :serve, class: "input" %><br/>
     </div>
 
-    <div id="ingredients">
-      <%= f.fields_for :ingredients do |ingredient| %>
-        <%= render 'ingredient_fields', f: ingredient %>
-      <% end %>
+    <div class="field">
+      <%= f.fields_for :ingredients do |i| %>
+      
+        <%= i.text_area :name, class: "text-field", placeholder: "write out your ingredients" %>
 
-      <div class="links">
-        <%= link_to_add_association 'add ingredient', f, :ingredients %>
-      </div>
-    </div>
+        <%= i.fields_for :recipe_details do |r| %>
+          <%= r.text_area :instruction, class: "text-field", placeholder: "Write your instructions here" %>
+        <% end %>
+      <% end %>  
 
-    
       <br>  
   <div class="actions">
     <%= f.submit class: "button" %>

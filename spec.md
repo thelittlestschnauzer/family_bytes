@@ -23,18 +23,9 @@ Confirm:
 - [X] Views use partials if appropriate 
  
 
- Specifications for the Rails Assessment
-Specs:
+ 
 
  
  
  
  
- Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
- Include form display of validation errors (form URL e.g. /recipes/new)
-Confirm:
-
- The application is pretty DRY
- Limited logic in controllers
- Views use helper methods if appropriate
- Views use partials if appropriate
