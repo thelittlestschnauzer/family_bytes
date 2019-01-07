@@ -13,7 +13,36 @@ class User < ApplicationRecord
     data = access_token.info  
     user = User.where(email: data['email']).first 
 
+      unless user 
+        user = User.create(name: data['name'],
+              email: data['email'],
+              password: Devise.friendly_token[0,20]
+              )
+      end 
     user 
   end
+
+  def create_from_omniauth
+    @user = User.find_or_create_by(email: auth[:info][:email]) do |user|
+      user.name = auth[:info][:name]
+      user.password = SecureRandom.hex
+     
+    session[:user_id] = @user.class 
+      if logged_in?
+        flash[:message] = "Successfully authenticated via Google"
+      else
+        flash[:message] = "Something went wrong"
+      end 
+      redirect_to root_path  
+    end
+  end 
+
+  private 
+
+  def auth 
+    request.env['omniauth.auth']
+  end 
+
+
 end 
 

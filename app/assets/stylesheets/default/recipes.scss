@@ -4,11 +4,11 @@
 }
 
 .recipe-subtitle {
-  text-align: center;
   text-transform: uppercase;
-  padding-top: 15px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
+
 
 .hero {
   width: 100%;
@@ -26,12 +26,16 @@
   padding-top: 50px;
   text-transform: uppercase;
   color: #35342D;
-  margin-left: 20%;
   font-weight: 500;
 }
 
 .ingredient-list {
-  margin-left: 20%;
+  font-size: 15px;
+}
+
+p.subtitle {
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
 .notification a:not(.button):not(.dropdown-item) {
@@ -41,6 +45,19 @@
 .recipe-index {
   text-transform: uppercase;
   font-weight: 200;
+}
+
+.search-button input {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+.search-button:hover {
+  color: #fff;
+  background-color: #7e7e7e;
+}
+
+.search-field {
+  border-radius: 5px;
 }
 
 .notification {
@@ -78,7 +95,12 @@
 .card-content p {
   font-size: 80%;
 }
-
+.search-title {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: 200;
+}
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -104,6 +126,27 @@
   }
 }
 
+.ingredient-list {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+
+.edit-recipe a {
+  text-transform: uppercase;
+}
+
+
+div.container {
+  text-align: center;
+}
+
+.new-form {
+  border: 1px solid #424244;
+  padding: 10px;
+}
+
 .fields_with_errors {
   color: #a20c0b;
   text-transform: uppercase;
@@ -116,7 +159,9 @@
   border: 1px solid #aaaca9;
   border-radius: 5px;
 }
-
+.button {
+  text-transform: uppercase;
+}
 .button:hover {
   background-color: #555;
   color: #fff;
