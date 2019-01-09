@@ -1,17 +1,25 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
-
-  
+  helper_method :current_user
 
 
-  protected 
+private 
 
-  def after_sign_out_path_for(resource_or_scope)
-    root_path
+  def current_user 
+    if session[:user_id]
+      @current_user ||= User.find_by(id: session[:user_id])
+    else
+      @current_user = nil 
+    end 
   end 
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:signup)
-    devise_parameter_sanitizer.for(:account_update) << :name 
+  def logged_in?
+    !!current_user
   end 
-end
+
+  def redirect_if_not_logged_in!
+    if !logged_in?
+      flash[:message] = "You have to be logged in to complete this action"
+      redirect_back fallback_location: root_path
+    end 
+  end 
+end    

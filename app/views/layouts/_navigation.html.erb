@@ -10,7 +10,7 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">      
-  <% if user_signed_in? %>
+  <% if current_user %>
     <div class="navbar-end">
       <div class="navbar-item">
       <div class="navbar-item has-dropdown is-hoverable">
@@ -23,7 +23,8 @@
             <%= link_to "New Recipe", new_recipe_path, class: "navbar-item" %>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item"><%= current_user.email %>
+          <a class="navbar-item">
+            Logged in as <%= current_user.email %>.
           </a>
         </div>
       </div>
@@ -36,7 +37,6 @@
       <% end %>
     </div>
     <div class="navbar-item">
-      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "navbar-item" %>
     </div>
     <% else %>
     <div class="navbar-end">
@@ -44,8 +44,8 @@
         <%= link_to 'Sign Up', signup_path, class: "navbar-item" %>
         <%= link_to 'Login', login_path, class: "navbar-item" %>
       </div>
-    <% end %>
       </div>
+      <% end %>
     </div>
   </div>
   </div>

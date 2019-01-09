@@ -7,23 +7,18 @@ Rails.application.routes.draw do
   end  
 
   get 'recipes/search', to: 'recipes#search'
-   
+  
+  get 'ingredients', to: 'ingredients#index'
+  
   resources :recipes
   
-  devise_scope :user do
-    get 'signup', to: 'devise/registrations#new'
-  end
+  resources :users 
+  resources :sessions, only: [:new, :create, :destroy]
 
-  devise_scope :user do
-    get 'login', to: 'devise/sessions#new'
-  end
-
-  devise_scope :user do
-    get 'logout', to: 'devise/sessions#destroy'
-  end
-  
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login' 
+  get 'logout', to: 'sessions#destroy', as: 'logout'  
     
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

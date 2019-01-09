@@ -22,7 +22,12 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(recipe_params)
     @recipe.image.attach(params[:recipe][:image])
-    redirect_to chapter_recipe_path(@recipe.chapter_id, @recipe)
+    if @recipe.save 
+      redirect_to chapter_recipe_path(@recipe.chapter_id, @recipe)
+    else
+      @recipe.ingredients.build 
+      render :new 
+    end 
   end 
 
   def show 

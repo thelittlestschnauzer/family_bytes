@@ -1,48 +1,14 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+  before_save { email.downcase! }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  
-  validates :email, presence: true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
-  validates :email, uniqueness: true 
-  validates :password, presence: true 
-  
-  def self.from_omniauth(access_token)
-    data = access_token.info  
-    user = User.where(email: data['email']).first 
+  validates :email, presence: true, 
+                              format: { with: VALID_EMAIL_REGEX },
+                              uniqueness: true  
 
-      unless user 
-        user = User.create(name: data['name'],
-              email: data['email'],
-              password: Devise.friendly_token[0,20]
-              )
-      end 
-    user 
-  end
+  validates :password, presence: true,
+                       length: { minimum: 6 }  
 
-  def create_from_omniauth
-    @user = User.find_or_create_by(email: auth[:info][:email]) do |user|
-      user.name = auth[:info][:name]
-      user.password = SecureRandom.hex
-     
-    session[:user_id] = @user.class 
-      if logged_in?
-        flash[:message] = "Successfully authenticated via Google"
-      else
-        flash[:message] = "Something went wrong"
-      end 
-      redirect_to root_path  
-    end
-  end 
+  has_secure_password
 
-  private 
-
-  def auth 
-    request.env['omniauth.auth']
-  end 
-
-
-end 
-
+end

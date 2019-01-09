@@ -19,16 +19,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'devise'
 gem 'bulma'
 gem 'jquery-rails'
 gem 'cocoon'
-gem 'omniauth-google-oauth2'
-
+gem 'dotenv'
 
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
