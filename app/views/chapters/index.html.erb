@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <section class="section">
 <h1 class="title chapters-title">Chapters in your Cookbook</h1>
 <div class="container">
@@ -15,6 +16,8 @@
         <% end %>
       <%# </div><!-- column --> %>
   </div><!-- container -->  
-  
+  <% else %>
 <section>
   <%= render 'home/welcome' %>
+</section>
+<% end %>
