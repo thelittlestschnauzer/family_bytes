@@ -24,8 +24,15 @@
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Logged in as <%= current_user.email %>.
+            <%= current_user.first_name %>
           </a>
+          <a class="navbar-item">
+            <%= link_to "Settings", edit_user_path(current_user), class: "navbar-item" %>
+          </a>
+          <a class="navbar-item">
+            <%= link_to 'Logout', logout_path, class: "navbar-item" %>
+          </a>
+            
         </div>
       </div>
     </div>

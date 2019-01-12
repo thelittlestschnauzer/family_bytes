@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_192430) do
+ActiveRecord::Schema.define(version: 2019_01_11_232308) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,11 @@ ActiveRecord::Schema.define(version: 2019_01_09_192430) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.string "uid"
+    t.string "provider"
+    t.string "name"
   end
 
 end

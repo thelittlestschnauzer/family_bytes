@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 before_action :redirect_if_unauthorized_user!, only: [:update, :edit, :destroy]
+before_action :correct_user, only: [:edit, :update]
 
   def new 
     @user = User.new 
@@ -14,7 +15,7 @@ before_action :redirect_if_unauthorized_user!, only: [:update, :edit, :destroy]
     if @user.save 
       session[:user_id] = @user.id 
       flash[:messge] = "Successfully Created Account!"  
-      redirect_to root_path 
+      redirect_to 'chapter/recipes'
     else
       render :new
     end 
@@ -26,6 +27,7 @@ before_action :redirect_if_unauthorized_user!, only: [:update, :edit, :destroy]
 
   def update
     if @user.update(user_params)
+      flash[:message] = "Profile Updated"
       redirect_to user_path
     else 
       render :edit 
@@ -52,5 +54,10 @@ before_action :redirect_if_unauthorized_user!, only: [:update, :edit, :destroy]
     if !@user = current_user 
       redirect_to '/login'
     end 
+  end 
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_path unless @user == current_user
   end 
 end  
