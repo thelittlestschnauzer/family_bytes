@@ -14,7 +14,8 @@
           <% end %>
         </picture>
         <div class="card-content">
-          <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
+          <h2 class="title-index"><%= link_to recipe.name, recipe_path(recipe) %></h2>
+          <button id="add-description" class="recipe-button">Description</button>
           <p><%= recipe.level %> | <%= recipe.serve %></p>
         </div><!-- card-content -->
       </article><!-- card -->

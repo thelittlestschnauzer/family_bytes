@@ -9,6 +9,25 @@
   padding-top: 10px;
 }
 
+.title-index {
+  margin-bottom: 5px !important;
+}
+
+.recipe-button {
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 10px;
+    &:hover {
+      background-color: #a20c0b;
+      color: #fff;
+    }
+  }
+
+#add-description {
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
 
 .hero {
   width: 100%;

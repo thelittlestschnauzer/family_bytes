@@ -24,7 +24,7 @@ gem 'jquery-rails'
 gem 'cocoon'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
-
+gem 'active_model_serializers'
 
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

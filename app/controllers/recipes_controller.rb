@@ -11,7 +11,12 @@ class RecipesController < ApplicationController
     else 
       @recipes = Recipe.all     
     end
+    respond_to do |format|
+      format.html {render :index }
+      format.json { render :json }
+    end
   end 
+  
 
   def new 
     @recipe = Recipe.new
