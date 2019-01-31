@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   belongs_to :chapter, optional: true
   has_many :recipe_details
   has_many :ingredients, through: :recipe_details
-
+  has_many :reviews 
   has_one_attached :image
 
   # scope :search, -> { where('name LIKE ?', "%#{keyword}%") }
