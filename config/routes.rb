@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :recipes, only: [:new, :show, :index]
   end  
 
+  resources :reviews 
+  
   get 'recipes/search', to: 'recipes#search'
   
   get 'ingredients', to: 'ingredients#index'
