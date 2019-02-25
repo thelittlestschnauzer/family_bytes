@@ -1,11 +1,11 @@
 class Review < ApplicationRecord
-<<<<<<< HEAD
   belongs_to :recipe 
   belongs_to :user 
-
-  validates :review_owner, presence: true 
-  validates :content, presence: true 
-=======
->>>>>>> adding_reviews
   
+  # validates :content, presence: true 
+  
+
+  def time 
+    created_at.strftime("%l:%M %P %B %e, %Y")
+  end 
 end

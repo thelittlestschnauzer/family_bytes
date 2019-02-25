@@ -1,7 +1,7 @@
 <div class="row">
-  <h3>Welcome, <%= @user.first_name %>.</h3>
+  <h3>Welcome, <%= current_user.first_name %>.</h3>
   <p>Let's build a wonderful cookbook filled with family favorites.</p>
     <p>To get started click Home so we can either create a chapter and add a recipe to it or
       just add a recipe</p>  
-  <%= link_to 'Edit User Account', edit_user_url %> | <%= link_to 'Home', root_path %> 
+  <%= link_to 'Edit User Account', profile_path %> | <%= link_to 'Home', root_path %> 
 </div>

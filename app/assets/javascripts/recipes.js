@@ -1,42 +1,29 @@
-function addIngredientField() {
+$(function(){
+  $("a.btn-review").on("click", function(e){
+      // alert("you clicked this link!")
+    // you just clicked on the description link
+    // I want the description to show in the page
+    // I want to use the HREF value as the value of the URL
+     $.ajax({
+      method: "GET",
+      url: this.href,
+    })
+    // .done(function(response){
+    //   //get the response 
 
-  //create Date object
-  var date = new Date();
+    //   // $("div#reviews").html(response)
 
-  //get number of milliseconds since midnight Jan 1, 1970 and use it for id
-  var mSec = date.getTime(); 
+    //   // we want to load the data in the DOM
+    // });
+    
+    // load the response into the HTML of the page
+    e.preventDefault();
+  })
+})
 
-  // Replace 0 with milliseconds
-  idAttributQuantity =  "recipe_ingredients_attributes_0_quantity".replace("0", mSec);
-  nameAttributQuantity =  "recipe[ingredients_attributes][0][quantity]".replace("0", mSec);
-
-  idAttributName =  "recipe_ingredients_attributes_0_name".replace("0", mSec);
-  nameAttributName =  "recipe[ingredients_attributes][0][name]".replace("0", mSec);
- 
-  // <li> tag
-  var li = document.createElement("li");
-
-  labelQuantity.setAttribute("for", idAttributQuantity);
-  labelQuantity.appendChild(quantityLabelText);
-  li.appendChild(labelQuantity);
-
-  inputQuantity.setAttribute("type", "text");
-  inputQuantity.setAttribute("id", idAttributQuantity);
-  inputQuantity.setAttribute("name", nameAttributQuantity);
-  li.appendChild(inputQuantity);
-
-  labelName.setAttribute("for", idAttributName);
-  labelName.appendChild(nameLabelText);
-  li.appendChild(labelName);
-
-  inputName.setAttribute("type", "text");
-  inputName.setAttribute("id", idAttributName);
-  inputName.setAttribute("name", nameAttributName);
-  li.appendChild(inputName);
-
-  //add created elements to myList
-  document.getElementById("myList").appendChild(li);
-
-  //show address header
-  $("#ingredientHeader").show(); 
-}
+$(document).ready(function(){
+  $('#reviews-section').hide();
+    $('#review-form').click(function(){
+      $('#reviews-section').show();
+    })
+});

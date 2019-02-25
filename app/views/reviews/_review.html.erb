@@ -1,0 +1,10 @@
+<div class="review-list">
+  <div class="review-owner">
+  <span>NAME: <%= review.review_owner %></span>
+    <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
+  </div>
+  <p class="rating">
+    <span>RATING: <%= review.rating %></span><br>
+    <span>REVIEW: <%= review.content %></span>
+  </p>
+</div>

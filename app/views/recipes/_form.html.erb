@@ -2,42 +2,47 @@
 <%= form_for @recipe do |f| %>
   <%= render 'shared/errors', object: @recipe %>
 
-    Select a chapter:
+  <div class="form-body">
+
+    <span class="label">Select a chapter:</span>
       <%= f.collection_select :chapter_id, Chapter.all, :id, :title %><br />
     <br>
-    <div class="field">
-      <%= f.label :name_of_your_recipe, class: "subtitle" %>
-      <%= f.text_field :name, class: "input" %>
-    </div><br/>
+      <%= f.text_field :name, placeholder: "Name of your Recipe", class: "form-control" %>
+      <%= f.label :Choose_Image_to_Upload, class: 'label' %>
+      <%= f.file_field :image, placeholder: "choose image file", class: "form-control" %>
+    <br>
+      <%= f.text_field :level, placeholder: "Skill Level", class: "form-control" %><br/>
+      <%= f.text_field :serve, placeholder: "How many the recipe serves", class: "form-control" %><br/>
+  
+  </div>    
 
-    <div class="field">
-      <%= f.label :image, class: 'subtitle' %>
-      <%= f.file_field :image %>
-    </div><br/>
+  <div class="row">
+    <div class="col-md-5 recipe-form-bottom">
+      <h3>Ingredients:</h3>
+      <div id="ingredients">
+          <%= f.fields_for :ingredients do |ingredient| %>
+            <%= render 'ingredient_fields', f: ingredient %>
+          <% end %>
+            <div class="links">
+              <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-ingredients" %>
+            </div>
+          </div><!-- ingredients -->
+        </div><!-- col-md-5 -->
 
-    <div class="field">
-      <%= f.label :level, class: "subtitle" %>
-      <%= f.text_field :level, class: "input" %><br/>
-    </div>
-    
-
-    <div class="field">
-      <%= f.label :serves, class: "subtitle" %>
-      <%= f.text_field :serve, class: "input" %><br/>
-    </div>
-
-    <div class="field">
-      <%= f.fields_for :ingredients do |i| %>
-      
-        <%= i.text_area :name, class: "text-field", placeholder: "write out your ingredients" %>
-
-        <%= i.fields_for :recipe_details do |r| %>
-          <%= r.text_area :instruction, class: "text-field", placeholder: "Write your instructions here" %>
+    <div class="col-md-5 recipe-form-bottom">
+      <h3>Directions:</h3>
+      <div id="directions">
+        <%= f.fields_for :directions do |direction| %>
+          <%= render 'direction_fields', f: direction %>
         <% end %>
-      <% end %>  
+          <div class="links">
+            <%= link_to_add_association 'add step', f, :directions, class: "btn btn-ingredients" %>
+          </div>
+      </div>
+    </div>
 
-      <br>  
+  </div><!-- row -->
   <div class="actions">
-    <%= f.submit class: "button" %>
+    <%= f.submit class: "button create-recipe" %>
   </div>
 <% end %>

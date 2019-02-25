@@ -6,10 +6,16 @@ Rails.application.routes.draw do
 
 
   resources :chapters do 
-    resources :recipes, only: [:new, :show, :index]
+    resources :recipes, only: [:new, :show, :index] 
   end  
 
-  resources :reviews 
+  resources :recipes do     
+    resources :reviews, except: [:show, :index]
+  end 
+
+  # resources :recipes do 
+  #   resources :reviews, only: [:show, :index]
+  # end
   
   get 'recipes/search', to: 'recipes#search'
   

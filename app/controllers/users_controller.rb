@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:profile, :edit, :update, :destroy]
 before_action :redirect_if_unauthorized_user!, only: [:update, :edit, :destroy]
 before_action :correct_user, only: [:edit, :update]
 
@@ -7,7 +7,8 @@ before_action :correct_user, only: [:edit, :update]
     @user = User.new 
   end 
 
-  def show 
+  def profile 
+     
   end 
 
   def create 

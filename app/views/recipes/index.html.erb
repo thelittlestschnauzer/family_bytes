@@ -2,24 +2,28 @@
   <div class="container">
     <h1 class="title chapters-title"><%= @chapter.title %></h1>
     <div class="button add-recipe"><%= link_to "New Recipe", new_chapter_recipe_path %></div>
-    <div class="button back"><%= link_to "Back", chapters_path %>
+    <div class="button back"><%= link_to "Back", chapters_path %></div>
   </div>
-  <div class="centered">
-    <section class="cards">
-    <% @recipes.each do |recipe| %>
-      <article class="card">
-        <picture class="thumbnail">
-          <% if recipe.image.attached? %>
-            <%= image_tag recipe.thumbnail, class: "image" %>
-          <% end %>
-        </picture>
-        <div class="card-content">
-          <h2 class="title-index"><%= link_to recipe.name, recipe_path(recipe) %></h2>
-          <button id="add-description" class="recipe-button">Description</button>
-          <p><%= recipe.level %> | <%= recipe.serve %></p>
-        </div><!-- card-content -->
-      </article><!-- card -->
-      <% end %>
-    </section><!-- cards -->
-  </div><!-- centered -->
+
+<section class="row large-up-4 medium-up-3 small-up-1" id="lotsofDesserts">
+  <% @recipes.each do |recipe| %>
+    <div class="mix recipes-column" style="display:inline-block;">
+      <figure class="staticTiles clearfix">
+        <% if recipe.image.attached? %>
+          <%= image_tag recipe.thumbnail, class: "images" %>
+        <% end %>
+        <figcaption class="staticTiles_item">
+          <p class="h13 staticTiles_item-title"><%= link_to recipe.name, recipe_path(recipe) %></p>
+          <p class="description"><%= link_to "description", recipe_path(recipe), class: "description-link" %>
+          <p class="staticTiles_serves">Serves: <%= recipe.serve %></p>
+          <p class="staticTiles_level"><%= recipe.level %></p>
+        </figcaption>
+      </figure>
+    </div>
+    <% end %>
+  </section>
 </main>
+
+    
+
+  

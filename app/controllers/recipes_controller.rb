@@ -19,24 +19,25 @@ class RecipesController < ApplicationController
   
 
   def new 
-    @recipe = Recipe.new
-    #@recipe = Recipe.new(chapter_id: params[:chapter_id])
-    @recipe.ingredients.build 
+		@recipe = current_user.recipes.build     
   end 
 
   def create
-    @recipe = Recipe.create(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     @recipe.image.attach(params[:recipe][:image])
-    if @recipe.save 
+
+    if @recipe.save
       redirect_to chapter_recipe_path(@recipe.chapter_id, @recipe)
     else
-      @recipe.ingredients.build 
       render :new 
     end 
   end 
 
+
   def show 
     @recipe = Recipe.find(params[:id])
+    @reviews = @recipe.reviews.all 
+    @review = @recipe.reviews.build 
   end 
 
   def edit 
@@ -63,7 +64,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, :keyword, ingredients_attributes: [:name, :_destroy, recipe_details: [:instruction, :_destroy]])
+    params.require(:recipe).permit(:name, :level, :serve, :chapter_id, :image, :keyword, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :method, :_destroy])
   end 
 
   def get_chapter

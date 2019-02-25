@@ -1,23 +1,24 @@
-<% if logged_in? %>
-<section class="section">
-<h1 class="title chapters-title">Chapters in your Cookbook</h1>
-<div class="container">
+  <% if logged_in? %>
+  <section class="section">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <h1 class="title hero-message">Family Bytes<span class="subhero-message"> - save your memories</span></h1>
+      </div>
+    </div>
+  </section>
   
-    <div class="cards">
-      <%# <div class="column is-4 chapters"> %>
+    <div class="container">
+      <div class="chapters">
         <% @chapters.each do |chapter| %>
-        <div class="card">
-          <div class="notification">
-            <p class="is-size-3 has-text-centered recipe-index">
-              <%= link_to chapter.title, chapter_recipes_path(chapter) %>
-            </p>
-          </div>
+          <div class="chapter">
+             <%= link_to chapter.title, chapter_recipes_path(chapter) %> 
           </div>
         <% end %>
-      <%# </div><!-- column --> %>
-  </div><!-- container -->  
-  <% else %>
-<section>
-  <%= render 'home/welcome' %>
+      </div>
+  </div><!-- row -->
 </section>
-<% end %>
+    <% else %>
+  <section>
+    <%= render 'home/welcome' %>
+  </section>
+    <% end %>

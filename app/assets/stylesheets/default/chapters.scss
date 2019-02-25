@@ -1,0 +1,73 @@
+.jumbotron {
+  background-image: url("cupcake-cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+}
+.hero-message {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  min-width: 100%;
+  min-height: 400px;
+  position: relative;
+  right: 80px;
+  font-size: 35px;
+  padding-left: 50px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.subhero-message {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  color: #fff;
+  font-size: 25px;
+  position: relative;
+  top: 80px;
+}
+
+// cards for the chapters
+.row {
+  width: 100%;
+}
+
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapter {
+  width: 25%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  border: 1px solid #dec3e3;
+  text-align: center;
+}
+
+.chapter:hover {
+  color: #fff;
+  background-color: #051e3e;
+}
+
+.chapter a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.chapter a {
+  padding: 10px;
+  color: #352C20;
+  text-align: center;
+}
+
+
+
+// .notification a:not(.button):not(.dropdown-item) {
+//   text-decoration-line: none;
+// }

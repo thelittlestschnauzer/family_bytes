@@ -1,59 +1,108 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <%= link_to "Family Bytes", root_path, class: "navbar-item" %>
+  <div id="header">
+    <div class="banner">
+    </div>
+      <nav class="navbar navbar-expand-lg">
+      <a class="openbtn" onclick="openNav()"><i class="fas fa-angle-double-left"></i><span class="nav-brand">Family Bytes</span></a> 
+    <% if logged_in? %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item col-md-1 mr-auto">
+        <button id="new-search-button" class="btn search-recipe-button mr-auto"><i class="fas fa-search"></i></button>
+          <div class="search-popover is-hidden" id="new-search-popover">
+            <div class="form-group">
+              <%= form_tag(recipes_search_path, method: :get) do %>
+                <%= text_field_tag :keyword, params[:keyword], class: "form-control", placeholder: "Name an Ingredient" %>
+              <%= submit_tag "Search", name: nil, class: "btn btn-search-button" %>
+            </div>
+           <% end %>
+           <button id="cancel-search-popover" class="btn cancel-button">Cancel</button>
+          </div>  
+        </li>
+      </ul>
+    </div>
+  </div><!-- header -->
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">      
-  <% if logged_in? %>
-    <div class="navbar-end">
-      <div class="navbar-item">
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-item">Recipes</a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            <%= link_to "New Chapter", new_chapter_path, class: "navbar-item" %>
-          </a>
-          <a class="navbar-item">
-            <%= link_to "New Recipe", new_recipe_path, class: "navbar-item" %>
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            <%= current_user.first_name %>
-          </a>
-          <a class="navbar-item">
-            <%= link_to "Settings", edit_user_path(current_user), class: "navbar-item" %>
-          </a>
-          <a class="navbar-item">
-            <%= link_to 'Logout', logout_path, class: "navbar-item" %>
-          </a>
-            
-        </div>
-      </div>
-    </div>
-    <div class="navbar-item">
-    Search Recipes:
-      <%= form_tag(recipes_search_path, method: :get) do %>
-        <%= text_field_tag :keyword, params[:keyword], class: "search-field" %>
-        <%= submit_tag 'Search', name: nil, class: "search-button" %>
-      <% end %>
-    </div>
-    <div class="navbar-item">
-    </div>
-    <% else %>
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <%= link_to 'Sign Up', signup_path, class: "navbar-item" %>
-        <%= link_to 'Login', login_path, class: "navbar-item" %>
-      </div>
-      </div>
-      <% end %>
+          
+     <% else %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <%= link_to 'Login', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', signup_path, class: "nav-link" %>
+        </li>
+      </ul>
+  
+    <% end %>
+        </nav>
     </div>
   </div>
-  </div>
-</nav>
+  	
+  <div id="mySidepanel" class="sidepanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
+        <button href="#recipeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle menu-title1">Recipes</button>
+          <ul class="collapse list-unstyled" id="recipeSubmenu">
+            <li class="submenu">   
+              <a href="#">Breakfast</a>
+            </li>
+            <li class="submenu">
+              <a href="#">Lunch</a>
+            </li>
+            <li class="submenu">
+              <a href="#">Dinner</a>
+            </li>
+            <li class="submenu">
+              <a href="#">Appetizers</a>
+            </li>
+            <li class="submenu">
+              <a href="#">Sides</a>
+            </li>
+            <li class="submenu">
+              <a href="#">Desserts</a>
+            </li>
+          </ul>
+          <button href="#recipeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle menu-title2">Holidays</button>
+            <ul class="collapse list-unstyled" id="recipeSubmenu">
+              <li class="submenu"> 
+                <a href="#">Valentine's Day</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">Halloween</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">Thanksgiving</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">Christmas</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">New Year's Day</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">Birthday's</a>
+                  </li>
+                  <li class="submenu"> 
+                    <a href="#">Christmas</a>
+                  </li>
+                </ul>
+                <div class="addon-menu">
+                  <%= link_to current_user.first_name, profile_path(@user) %>
+                  <%= link_to 'Add Chapter', new_chapter_path %>
+                  <%= link_to 'Add Recipe', new_recipe_path %>
+                  <%= link_to 'HOME', root_path %>
+                  <%= link_to 'Log Out', logout_path %> 
+                </div>
+              </div><!-- sidepanel -->
+
+        
+    
+    <script>
+	    $(document).ready(function(){
+			$('#sidebarCollapse').on('click',function(){
+				$('#sidebar').toggleClass('active');
+			});
+		});  
+	</script>
+    
+    

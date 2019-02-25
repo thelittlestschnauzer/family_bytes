@@ -1,17 +1,8 @@
-
-
-<%# <div class="nested-fields">
-  
-    <%= f.label :ingredient, class: 'subtitle' %>
-    <%# <%= f.text_field :name, class: 'input' %>
-  <%# <%= link_to_remove_association "remove ingredient", f %>     %>
-<%# </div> %> %>
-
-  <%# <div id="instructions" class="field">  %>
-  <%# <%= f.fields_for :recipe_details do |rd| %> %>
-  <%# <%= rd.text_field :instruction, class: 'input', placeholder: 'Instructions' %>  %>
-<%# </div>  %>
-<%# <% end %> %>
-    %>
+<div class="form-inline clearfix">
+  <div class="nested-fields">
+    <%= f.text_field :name, placeholder: "quantity and name", class: 'form-control form-input' %>
+  </div>
+  <%= link_to_remove_association "Remove", f, class: "form-button btn btn-direction" %>
+</div>
 
   
